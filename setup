@@ -2,7 +2,7 @@
 
 # env variables
 TMP_FILE=$(mktemp)
-REMOTE_CONFIG_FILE_URL='https://gist.githubusercontent.com/husamuddin/71c0951ea74f6865f6efbd6a568b09f5/raw/d5a9a1a4614d52d0aabe5399084983f368ba4db0/.vimrc'
+REMOTE_CONFIG_FILE_URL='https://raw.githubusercontent.com/husamuddin/vimrc/main/.vimrc'
 
 makeNvimConfig () {
   # neovim config to read from .vimrc
