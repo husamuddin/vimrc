@@ -52,6 +52,13 @@ Plug 'honza/vim-snippets'
 
 Plug 'bagrat/vim-buffet'
 Plug 'mattn/emmet-vim'
+Plug 'vim-scripts/grep.vim'
+
+"" dot repeat
+Plug 'tpope/vim-repeat'
+
+"" languages support
+Plug 'sheerun/vim-polyglot'
 
 "" Define coc extentions
 let g:coc_global_extensions = [
@@ -66,7 +73,8 @@ let g:coc_global_extensions = [
   \ 'coc-highlight',
   \ 'coc-yaml',
   \ 'coc-flow',
-  \ 'coc-emoji'
+  \ 'coc-emoji',
+  \ 'coc-phpls'
   \ ]
 
 "" add the currently active theme
@@ -603,7 +611,7 @@ vnoremap /? y?<C-R>"<CR>
 
 "" remapping prettier
 vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
 
 "*****************************************************************************
 "" Convenience variables
