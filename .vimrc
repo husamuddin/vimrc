@@ -74,7 +74,8 @@ let g:coc_global_extensions = [
   \ 'coc-yaml',
   \ 'coc-flow',
   \ 'coc-emoji',
-  \ 'coc-phpls'
+  \ 'coc-phpls',
+  \ 'coc-python'
   \ ]
 
 "" add the currently active theme
