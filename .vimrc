@@ -75,11 +75,13 @@ let g:coc_global_extensions = [
   \ 'coc-flow',
   \ 'coc-emoji',
   \ 'coc-phpls',
-  \ 'coc-python'
+  \ 'coc-pyright'
   \ ]
 
 "" add the currently active theme
 Plug 'sainnhe/gruvbox-material' 
+let g:gruvbox_material_transparent_background = 1
+
 
 "" add shortcuts for buffers killing
 Plug 'qpkorr/vim-bufkill'
@@ -90,7 +92,7 @@ Plug 'tpope/vim-surround'
 "" COC extentions
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
+" Plug 'github/copilot.vim'
 
 "*****************************************************************************
 "*****************************************************************************
@@ -100,9 +102,7 @@ call plug#end()
 " Required:
 filetype plugin indent on
 
-
-" ======= coc settings
-" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
+" ======= coc settings Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
 set encoding=utf-8
 
@@ -126,11 +126,11 @@ set shortmess+=c
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -316,22 +316,22 @@ set number
 set relativenumber
 set cursorline
 set cursorcolumn
+set nolazyredraw
+set nowrap
 
 let no_buffers_menu=1
 colorscheme gruvbox-material
 
-
 set mousemodel=popup
 set t_Co=256
-set guioptions=egmrti
-set gfn=Monospace\ 10
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
-    set guifont=Menlo:h12
+    set guifont==DejaVuSansMono:h15
     set transparency=7
   endif
 else
+
   " IndentLine
   let g:indentLine_enabled = 1
   let g:indentLine_concealcursor = 0
@@ -410,6 +410,7 @@ let NERDTreeShowLineNumbers=1
 let g:NERDTreeChDirMode=2
 let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
 let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
+let g:NERDTreeShowHidden=1
 let g:NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
@@ -499,11 +500,6 @@ nnoremap <leader>so :OpenSession<Space>
 nnoremap <leader>ss :SaveSession<Space>
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
-
-"" Tabs
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
