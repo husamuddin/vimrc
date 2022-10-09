@@ -75,7 +75,8 @@ let g:coc_global_extensions = [
   \ 'coc-flow',
   \ 'coc-emoji',
   \ 'coc-phpls',
-  \ 'coc-pyright'
+  \ 'coc-pyright',
+  \ 'coc-go'
   \ ]
 
 "" add the currently active theme
@@ -202,6 +203,9 @@ xmap ic <Plug>(coc-classobj-i)
 omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
+
+" golang: auto-format code and add missing imports
+" autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
